@@ -8,7 +8,7 @@ import { Producto } from '../models/producto';
 })
 export class ListasCompraService {
 
-  private urlServer = 'http://localhost:3000'
+  private urlServer = 'http://localhost:3000/api'
 
   constructor(private http: HttpClient) { }
 
