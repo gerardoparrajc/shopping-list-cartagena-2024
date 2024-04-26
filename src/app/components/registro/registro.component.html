@@ -1,0 +1,28 @@
+<div class="registro-container">
+  <form [formGroup]="formulario" (ngSubmit)="doRegistro()">
+    <h1>Shopping List - Registro de usuarios</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput type="text" formControlName="username">
+      <mat-error *ngIf="formulario.get('username')?.errors?.['required']">Por favor, escribe tu correo electrónico</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="formulario.get('password')?.errors?.['required']">Por favor, escribe una contraseña</mat-error>
+      <mat-error *ngIf="formulario.get('password')?.errors?.['minlength']">La contraseña tiene que tener al menos 6 caracteres</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Repite contraseña</mat-label>
+      <input matInput type="password" formControlName="repitePassword">
+      <mat-error *ngIf="formulario.get('repitePassword')?.errors?.['required']">Por favor, escribe una contraseña</mat-error>
+      <mat-error *ngIf="formulario.get('repitePassword')?.errors?.['passwordsIguales']">Las contraseñas tienen que ser iguales</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+      <button type="button" [routerLink]="['/login']" mat-button color="accent">¿Ya tienes cuenta?<br />Identifícate</button>
+      <button type="submit" [disabled]="formulario.invalid" mat-raised-button color="primary">Regístrate</button>
+    </div>
+  </form>
+</div>

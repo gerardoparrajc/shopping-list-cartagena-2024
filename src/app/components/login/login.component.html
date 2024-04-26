@@ -14,7 +14,7 @@
       <mat-error *ngIf="formulario.get('password')?.errors?.['minlength']">La contraseña tien que tener al menos 6 caracteres</mat-error>
     </mat-form-field>
     <div class="buttons">
-      <button type="button" mat-button color="accent">Regístrate</button>
+      <a  [routerLink]="['/register']" mat-button color="accent">Regístrate</a>
       <button type="submit" mat-raised-button color="primary">Login</button>
     </div>
   </form>

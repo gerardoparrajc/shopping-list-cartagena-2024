@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #303030; color: white;}
+
+.spacer {
+  flex: 1 1 auto;
+}
