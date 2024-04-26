@@ -1,0 +1,21 @@
+<div class="login-container">
+  <form [formGroup]="formulario" (ngSubmit)="doLogin()">
+    <h1>ShoppingList - Login</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput type="text" formControlName="username">
+      <mat-error *ngIf="formulario.get('username')?.errors?.['required']">Por favor, escribe tu nombre de usuario</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="formulario.get('password')?.errors?.['required']">Por favor, escribe una contraseña</mat-error>
+      <mat-error *ngIf="formulario.get('password')?.errors?.['minlength']">La contraseña tien que tener al menos 6 caracteres</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+      <button type="button" mat-button color="accent">Regístrate</button>
+      <button type="submit" mat-raised-button color="primary">Login</button>
+    </div>
+  </form>
+</div>
