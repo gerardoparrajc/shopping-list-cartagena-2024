@@ -9,7 +9,13 @@
   </mat-selection-list>
 </div>
 
+<button *ngIf="!sinListaSeleccionada" (click)="showAnadirProducto()" mat-raised-button color="accent" class="fake-fab-button">
+  <mat-icon>inventory_2</mat-icon>
+  Añadir producto
+</button>
+
 <div *ngIf="sinListaSeleccionada">
   <h1>No hay lista seleccionada</h1>
   <h2>Por favor, selecciona una lista del menú lateral o crea una nueva</h2>
 </div>
+

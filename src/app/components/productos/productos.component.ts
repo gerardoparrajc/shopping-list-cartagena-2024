@@ -71,4 +71,8 @@ export class ProductosComponent implements OnInit {
   doActualziarLista() {
     this.actualizarListaCompra();
   }
+
+  showAnadirProducto() {
+
+  }
 }
