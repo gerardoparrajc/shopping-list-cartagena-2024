@@ -37,7 +37,7 @@ export class ListasCompraService {
   }
 
   addProductoToLista(idLista: number, producto: Producto) {
-    return this.http.post(`${this.urlServer}/listas-compra/${idLista}/producto`, producto);
+    return this.http.post(`${this.urlServer}/listas-compra/${idLista}/productos`, producto);
   }
 
   updateProductoFromLista(producto: Producto) {

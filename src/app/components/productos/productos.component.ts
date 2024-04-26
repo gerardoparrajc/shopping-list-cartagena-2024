@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { ItemProductoComponent } from './item-producto/item-producto.component';
+import { NuevoProductoComponent } from '../../dialogs/nuevo-producto/nuevo-producto.component';
 
 @Component({
   selector: 'app-productos',
@@ -30,7 +31,8 @@ export class ProductosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private listasCompraService: ListasCompraService
+    private listasCompraService: ListasCompraService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +75,18 @@ export class ProductosComponent implements OnInit {
   }
 
   showAnadirProducto() {
+    const dialog = this.dialog.open(NuevoProductoComponent);
 
+    dialog.afterClosed().subscribe(
+      (resultado: Producto) => {
+        console.log(resultado);
+        if (resultado) {
+          this.listasCompraService.addProductoToLista(this.idLista, resultado).subscribe({
+            next: (respuesta: any) => this.actualizarListaCompra(),
+            error: (error) => console.log(error)
+          });
+        }
+      }
+    )
   }
 }
