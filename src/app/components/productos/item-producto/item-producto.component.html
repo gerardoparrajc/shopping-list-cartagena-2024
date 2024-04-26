@@ -1,4 +1,22 @@
 <mat-list-option>
-  <span class="nombre">{{ producto.nombre }}</span>
-  <span class="badge">{{ producto.unidades }}</span>
+
+  <span class="mat-list-option-items">
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" matListItemMeta (click)="cancelarClick($event)">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="showDialogEditarProducto()">
+        <mat-icon>edit</mat-icon> Editar producto
+      </button>
+      <button mat-menu-item (click)="showDialogEliminarProducto()">
+        <mat-icon>delete</mat-icon> Eliminar producto
+      </button>
+    </mat-menu>
+
+    <span class="nombre">{{ producto.nombre }}</span>
+    <span class="badge">{{ producto.unidades }}</span>
+  </span>
+
 </mat-list-option>

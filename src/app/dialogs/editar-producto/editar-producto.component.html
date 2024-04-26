@@ -1,0 +1,23 @@
+<form [formGroup]="formulario" (ngSubmit)="doSubmit()">
+  <h1 mat-dialog-title>Editar producto</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del producto</mat-label>
+      <input matInput type="text" formControlName="nombre" id="nombre">
+      <mat-error *ngIf="formulario.get('nombre')?.invalid">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Unidades</mat-label>
+      <input matInput type="number" formControlName="unidades" id="unidades">
+
+        <mat-error *ngIf="formulario.get('unidades')?.errors?.['required']">Este campo es obligatorio</mat-error>
+        <mat-error *ngIf="formulario.get('unidades')?.errors?.['max']">No se pueden comprar más de 10 unidades</mat-error>
+
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+    <button type="submit" mat-raised-button color="primary">Actualizar</button>
+  </div>
+</form>
